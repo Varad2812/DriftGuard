@@ -1,0 +1,20 @@
+# Role contract: what a Procurement Agent is for. Drafted from the agent's
+# system prompt and tool list, then approved by a human owner.
+role: procurement
+description: Checks supplier prices and raises purchase requests.
+owner: a.mehta
+version: 1
+tools: [search_suppliers, read_doc, get_prices, create_pr, send_email]
+data: [public, supplier, internal]
+egress: [supplier-portal.com, erp.internal, mail.internal]
+rate_per_min: 20
+may_call: [finance]
+delegate: {}
+tasks:
+  compare_prices: [search_suppliers, read_doc, get_prices]
+  raise_pr: [get_prices, create_pr, send_email]
+approved_changes:
+  - version: 2
+    add_tools: [read_file]
+    reason: Read shared document templates
+    approved_by: a.mehta

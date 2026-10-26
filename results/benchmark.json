@@ -1,0 +1,64 @@
+{
+ "IAM only": {
+  "detection_mean": 0.0,
+  "detection_sd": 0.0,
+  "false_alarm_mean": 0.0,
+  "ttd_median": null,
+  "per_attack": {
+   "injection": 0.0,
+   "stolen_token": 0.0,
+   "poisoned_tool": 0.0,
+   "slow_drift": 0.0,
+   "mimicry": 0.0,
+   "chain": 0.0
+  }
+ },
+ "Anomaly only (UEBA)": {
+  "detection_mean": 0.20083333333333334,
+  "detection_sd": 0.06835873511605278,
+  "false_alarm_mean": 0.0575,
+  "ttd_median": 4.0,
+  "per_attack": {
+   "injection": 0.0,
+   "stolen_token": 0.2,
+   "poisoned_tool": 0.0,
+   "slow_drift": 1.0,
+   "mimicry": 0.005,
+   "chain": 0.0
+  }
+ },
+ "DriftGuard": {
+  "detection_mean": 0.9748333333333333,
+  "detection_sd": 0.0037601713908928455,
+  "false_alarm_mean": 0.0,
+  "ttd_median": 2.0,
+  "per_attack": {
+   "injection": 1.0,
+   "stolen_token": 1.0,
+   "poisoned_tool": 1.0,
+   "slow_drift": 1.0,
+   "mimicry": 0.849,
+   "chain": 1.0
+  },
+  "latency_ms_p99": 0.019212120018892276,
+  "actions_scored": 154869
+ },
+ "config": {
+  "seeds": [
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109
+  ],
+  "sessions": 16000,
+  "attacks": 6000,
+  "benign": 10000,
+  "alert_threshold": 60
+ }
+}

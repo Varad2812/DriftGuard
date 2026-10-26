@@ -1,0 +1,20 @@
+role: support
+description: Resolves customer tickets using the knowledge base and CRM.
+owner: v.rathor
+version: 1
+tools: [read_ticket, search_kb, reply_ticket, read_doc, lookup_customer]
+data: [public, customer, internal]
+egress: [ticketing.internal, crm.internal, mail.internal]
+rate_per_min: 30
+may_call: [finance]
+# Support may ask the finance agent for refund lookups (finance data), nothing else.
+delegate:
+  finance: [finance]
+tasks:
+  resolve_ticket: [read_ticket, search_kb, lookup_customer, reply_ticket]
+  kb_answer: [read_ticket, read_doc, search_kb, reply_ticket]
+approved_changes:
+  - version: 2
+    add_tools: [read_file]
+    reason: Read shared document templates
+    approved_by: v.rathor

@@ -1,0 +1,19 @@
+role: finance
+description: Prepares finance reports and pays approved supplier invoices.
+owner: k.patil
+version: 1
+tools: [read_ledger, run_report, send_email, pay_invoice, read_doc]
+data: [finance, internal, supplier]
+egress: [erp.internal, mail.internal, bank-api.partner.com]
+rate_per_min: 15
+may_call: []
+delegate: {}
+tasks:
+  monthly_report: [read_ledger, run_report, send_email]
+  pay_supplier: [read_ledger, pay_invoice, send_email]
+  refund_lookup: [read_ledger, send_email]
+approved_changes:
+  - version: 2
+    add_tools: [read_file]
+    reason: Read shared document templates
+    approved_by: k.patil

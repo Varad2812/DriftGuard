@@ -1,0 +1,3 @@
+PyYAML>=6.0
+# optional: only for the anomaly-only baseline in `python -m driftguard bench`
+scikit-learn>=1.3

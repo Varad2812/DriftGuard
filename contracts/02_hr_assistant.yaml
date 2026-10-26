@@ -1,0 +1,18 @@
+role: hr_assistant
+description: Answers HR policy questions and simple employee queries.
+owner: r.agasti
+version: 1
+tools: [read_policy, lookup_employee, send_email, read_doc]
+data: [internal, hr]
+egress: [mail.internal, payroll.internal]
+rate_per_min: 15
+may_call: []
+delegate: {}
+tasks:
+  answer_policy: [read_policy, read_doc, send_email]
+  employee_query: [lookup_employee, send_email]
+approved_changes:
+  - version: 2
+    add_tools: [read_file]
+    reason: Read shared document templates
+    approved_by: r.agasti
